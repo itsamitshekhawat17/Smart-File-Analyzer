@@ -1,4 +1,6 @@
 fastapi
-pandas
-streamlit
 uvicorn
+pandas
+python-multipart
+openpyxl
+streamlit
