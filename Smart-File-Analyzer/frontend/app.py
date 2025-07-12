@@ -15,7 +15,7 @@ if uplaoded_file is not None:
             with st.spinner("Analyzing...."):
 
                 files = {"file":(uplaoded_file.name,uplaoded_file.getvalue())}
-                response = requests.post("http://127.0.0.1:8000/upload-file/",files = files )
+                response = requests.post("https://smart-file-analyzer.onrender.com/upload-file/",files = files )
 
                 if response.status_code ==200:
                     try:
