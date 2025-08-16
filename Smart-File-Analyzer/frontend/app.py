@@ -4,17 +4,17 @@ import requests  #backend se baat krne ke liye use
 
 st.title("Smart File Analyzer")
 
-uplaoded_file = st.file_uploader("Upload your CSV or excel File")
+uploaded_file = st.file_uploader("Upload your CSV or excel File")
 
-if uplaoded_file is not None:
+if uploaded_file is not None:
     st.success("File Uploaded")
-    st.write("Filename",uplaoded_file.name)
+    st.write("Filename:", uploaded_file.name)
 
     if st.button(" 🔍 Analyse File"):
         try:
             with st.spinner("Analyzing...."):
 
-                files = {"file":(uplaoded_file.name,uplaoded_file.getvalue())}
+                files = {"file":(uploaded_file.name,uploaded_file.getvalue())}
                 response = requests.post("https://smart-file-analyzer.onrender.com/upload-file/",files = files )
 
                 if response.status_code ==200:
@@ -39,7 +39,7 @@ if uplaoded_file is not None:
                     
                       else:
                 
-                        st.error("Unexpected response from beackend.")
+                        st.error("Unexpected response from backend.")
                     except Exception as parse_error:
                        st.error(f"❌ Failed to parse JSON: {str(parse_error)}")
                        st.write("Raw Response Text:", response.text)
