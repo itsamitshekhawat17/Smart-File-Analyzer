@@ -7,7 +7,7 @@ from datetime import datetime
 
 # Set page configuration
 st.set_page_config(
-    page_title="Smart File Analyzer v2.0",
+    page_title="Smart File Analyzer",
     page_icon="📊",
     layout="wide"
 )
@@ -147,7 +147,7 @@ else:
                                 st.metric("Data Types", str(summary["dtypes"]))
                                 
                             # Show full backend response
-                            with st.expander("View Full Backend Response"):
+                            with st.expander("View full Backend Response"):
                                 st.json(result)
             else:
                 # Local analysis
